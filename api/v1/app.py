@@ -20,5 +20,11 @@ def close_api(exception):
     storage.close()
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """Handler for page not found"""
+    return {"error": "Not found"}, 404
+
+
 if __name__ == '__main__':
     app.run(host=API_HOST, port=API_PORT, threaded=True)
