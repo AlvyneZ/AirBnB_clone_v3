@@ -53,7 +53,7 @@ class DBStorage:
 
     def get(self, cls, id):
         """query for a specific object from the current database session"""
-        return self.all(cls).get(id)
+        return self.all(cls).get(cls.__name__ + "." + id)
 
     def count(self, cls=None):
         """query the number of objects in the current database session"""
