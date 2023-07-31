@@ -13,10 +13,12 @@ app = Flask(__name__)
 
 app.register_blueprint(app_views)
 
+
 @app.teardown_appcontext
 def close_api(exception):
     """Method to close storage"""
     storage.close()
+
 
 if __name__ == '__main__':
     app.run(host=API_HOST, port=API_PORT, threaded=True)
