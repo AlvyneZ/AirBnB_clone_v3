@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" holds class User"""
+"""holds general api views"""
 from flask import jsonify
 from api.v1.views import app_views
 from models import storage
@@ -16,11 +16,13 @@ classes = {"amenities": Amenity, "cities": City, "places": Place,
 
 @app_views.route('/status')
 def status():
+    """Returns the state of the API server"""
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats')
 def stats():
+    """Returns a count of stored objects by type"""
     obj_counts = {}
     for key, cls in classes.items():
         obj_counts[key] = storage.count(cls)
