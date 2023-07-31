@@ -35,8 +35,12 @@ class FileStorage:
         return self.__objects
 
     def get(self, cls, id):
-        """query for a specific object from the current database session"""
+        """query for a specific object from the dictionary __objects"""
         return self.all(cls).get(cls.__name__ + "." + id)
+
+    def count(self, cls=None):
+        """query the number of objects in the dictionary __objects"""
+        return len(self.all(cls))
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
