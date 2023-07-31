@@ -46,7 +46,7 @@ def user_endpoint(user_id):
         new_det = request.get_json(silent=True)
         if new_det is None:
             return "Not a JSON", 400
-        for key, val in new_det.items(): 
+        for key, val in new_det.items():
             if key not in ["id", "email", "created_at", "updated_at"]:
                 setattr(user, key, val)
         user.save()
