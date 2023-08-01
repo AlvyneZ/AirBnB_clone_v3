@@ -57,7 +57,7 @@ def place_endpoint(place_id):
             return "Not a JSON", 400
         for key, val in new_det.items():
             if key not in ["id", "user_id", "city_id",
-                    "created_at", "updated_at"]:
+                           "created_at", "updated_at"]:
                 setattr(place, key, val)
         place.save()
         return jsonify(place.to_dict())
