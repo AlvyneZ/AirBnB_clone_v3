@@ -7,6 +7,10 @@ from models.user import User
 
 
 @app_views.route(
+    '/users',
+    methods=['GET', 'POST']
+)
+@app_views.route(
     '/users/',
     methods=['GET', 'POST']
 )
